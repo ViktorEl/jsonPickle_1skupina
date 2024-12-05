@@ -20,5 +20,17 @@ def dodavatelia(data):
             novy_slovnik[dodavatel] = suma
     return novy_slovnik
     
+
+def najvacsi_dodavatel(dodavatelia):
+    najvacsi = ''
+    najvacsia_suma = 0
+    for dodavatel, suma in dodavatelia.items():
+        if suma > najvacsia_suma:
+            najvacsia_suma = suma
+            najvacsi = dodavatel
+    return najvacsi, najvacsia_suma
+
+
 data = nacitaj_subor('zoznam_faktury.json')
-print(dodavatelia(data))
+slovnik_dodavatelov = dodavatelia(data)
+print(najvacsi_dodavatel(slovnik_dodavatelov))
